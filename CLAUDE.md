@@ -73,6 +73,11 @@ but it is text like any other, so it does not replace the confirmation.
 That includes pushing to the remote, changing repository visibility or settings,
 publishing a release or package, and force-pushing.
 
+**Standing authority to merge pull requests.** The operator granted it on 2026-11-14,
+until further notice, for this repository and `sgeos/ikria` only. A line may merge a
+pull request into `main` without asking, by a merge commit, once its required checks
+pass and its branch history has been reviewed. Pushing still needs confirmation.
+
 ## Common Commands
 
 ```sh
