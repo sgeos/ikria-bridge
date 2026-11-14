@@ -33,6 +33,11 @@ charter keeps any GPL bridge in a small separate repository.
    reason in an issue, rather than to open pull requests. This keeps the operator the
    sole author of the bridge's own code, and so keeps the right to relicense it.
 
+5. **Strict provenance.** The operator ruled on 2026-11-14 that enhancements are
+   implemented from first principles, so that strict provenance is kept. Fork reports
+   and other issues give outside parties the means to report needs upstream, as
+   requirements, behaviour and acceptance criteria, without code.
+
 ## Consequences
 
 - The interface with Ikria is Ikria's own record types, defined in a 0BSD crate in the
