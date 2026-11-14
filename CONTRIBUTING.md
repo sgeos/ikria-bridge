@@ -2,7 +2,7 @@
 
 Contributions are welcome, including fixes, documentation and tests.
 
-**The project is licensed under 0BSD.** By contributing you agree that your contribution
+**The project is licensed under GPL-3.0-only.** By contributing you agree that your contribution
 is released under the same licence. Do not contribute material that you did not write,
 or that carries terms of its own.
 

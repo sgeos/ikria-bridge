@@ -1,8 +1,8 @@
 # Code of Conduct
 
 This project asks very little of the people who use it, and it asks little of the
-people who take part in it. The software is licensed under 0BSD, so anyone may take it
-and do anything with it. This code governs only how people treat each other in the
+people who take part in it. The software is licensed under GPL-3.0, whose terms
+govern how it may be used and shared. This code governs only how people treat each other in the
 project's own spaces, which are its repository, issues, pull requests, discussions and
 any channel the project runs.
 

@@ -12,7 +12,7 @@ assignees: ''
 
 ## Version
 
-- PROJECT_NAME version or commit:
+- ikria-bridge version or commit:
 - Host platform, meaning operating system and architecture:
 - Relevant tool versions:
 

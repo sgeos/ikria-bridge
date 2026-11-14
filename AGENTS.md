@@ -18,6 +18,7 @@ making any non-trivial change.
 
 ## Flagged up front
 
+- **Do not edit Keleusma or Ikria.** They are separate repositories.
 - **Commit once per prompt,** with no `Co-Authored-By` trailer.
 - **Ask before outward-facing actions,** such as pushing, changing visibility or
   settings, or publishing.

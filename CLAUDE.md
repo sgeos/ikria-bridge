@@ -6,13 +6,22 @@ only what applies broadly. History lives in git and in `CHANGELOG.md`.
 
 ## Project Overview
 
-PROJECT_NAME is a one-paragraph description of what the project is, what it is for, and
-what it deliberately does not do.
+Ikria Bridge connects the Ikria harness to the kRPC mod for Kerbal Space Program 1. It
+reads telemetry and applies commands through kRPC, holds the game's physics tick for
+lockstep stepping, and exchanges Ikria's own record types with the harness process. It
+is the only part of Ikria that knows about the game. It is GPL-3.0 because the kRPC
+client and service definitions it uses are, and it runs as a separate process so that
+Ikria's other parts stay 0BSD. It holds no control logic, which lives in Ikria's
+Keleusma programs.
 
 **Status.** Seeded from `sgeos/project-template`. Nothing is implemented yet. The
-first milestone is in [`docs/roadmap/`](docs/roadmap/README.md).
+design is Ikria's `docs/architecture/HARNESS_DESIGN.md`, and the first milestone will
+be in [`docs/roadmap/`](docs/roadmap/README.md).
 
 ## Development Process
+
+**Do not edit Keleusma or Ikria.** They are separate repositories. Report a needed
+change to the operator, or to the Ikria line, instead.
 
 **Session startup protocol.**
 1. Read [`docs/process/HANDOFF.md`](docs/process/HANDOFF.md) and run its validity checks.
@@ -43,7 +52,7 @@ operator's instruction of 2026-10-25, which applies to every repository. The rul
 entered the template in `sgeos/project-template` pull request 10, released as
 `v1.0.3`.
 
-The remote is `https://github.com/sgeos/PROJECT_NAME`. Its git configuration uses the
+The remote is `https://github.com/sgeos/ikria-bridge`. Its git configuration uses the
 GitHub command-line tool as the credential helper, because SSH keys are unreachable from
 inside agent sandboxes.
 
@@ -99,6 +108,8 @@ progress stays with the project and survives a restart.
 `secret/` holds local material that is never committed, such as credentials, API keys and
 environment-specific notes. It is ignored whole and does not exist in a fresh clone.
 Never copy its contents into tracked files, commit messages, issues or pull requests.
+If `secret/README.md` exists, read it at session start and before writing anything
+tracked. A new worktree has no `secret/`, so copy it from the main checkout first.
 
 `scripts/check.sh` fails if anything under `secret/`, or anything under `tmp/` other than
 its marker, is tracked. If `secret/disclosure-terms.txt` exists, one term per line, the

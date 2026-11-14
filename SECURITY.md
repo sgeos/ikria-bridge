@@ -12,7 +12,7 @@ Replace this table at the first release, and keep it current with each release l
 
 Please report security issues privately, so that a fix can be prepared before public
 disclosure. Open a draft advisory at
-<https://github.com/sgeos/PROJECT_NAME/security/advisories/new>. The maintainer is
+<https://github.com/sgeos/ikria-bridge/security/advisories/new>. The maintainer is
 notified and can work on the fix with you in the same place.
 
 Please include the affected version or commit, a minimal way to reproduce the issue, the

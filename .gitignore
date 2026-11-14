@@ -39,6 +39,10 @@ Thumbs.db
 *~
 nvim.log
 
+# Rust build output. No trailing slash, so a link to a scratch volume still matches.
+/target
+**/target
+
 # Add language and tool entries below, such as build output, dependency
 # directories and virtual environments. Write each without a trailing slash, as
 # `/target` rather than `/target/`, because scripts/scratch.sh may replace the

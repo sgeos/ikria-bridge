@@ -3,15 +3,16 @@
 # current with each later one.
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "PROJECT_NAME"
+title: "ikria-bridge"
 abstract: >
-  One or two sentences that say what PROJECT_NAME is.
+  The GPL-3.0 bridge between the Ikria harness and the kRPC mod for Kerbal Space Program 1.
 authors:
   - family-names: "Sechter"
     given-names: "Brendan A R"
-url: "https://github.com/sgeos/PROJECT_NAME"
-repository-code: "https://github.com/sgeos/PROJECT_NAME"
-license: "0BSD"
+url: "https://github.com/sgeos/ikria-bridge"
+repository-code: "https://github.com/sgeos/ikria-bridge"
+license: "GPL-3.0-only"
 type: software
 keywords:
-  - "PROJECT_NAME"
+  - "ikria"
+  - "krpc"
