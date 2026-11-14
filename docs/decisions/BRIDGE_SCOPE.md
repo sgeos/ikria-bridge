@@ -28,6 +28,11 @@ charter keeps any GPL bridge in a small separate repository.
    licensing loosens. Outside contributions would end that, unless their authors
    agree.
 
+4. **No outside contributions.** The operator ruled on 2026-11-14 that the bridge accepts
+   no outside contributions. Outside parties are encouraged to fork it and report the
+   reason in an issue, rather than to open pull requests. This keeps the operator the
+   sole author of the bridge's own code, and so keeps the right to relicense it.
+
 ## Consequences
 
 - The interface with Ikria is Ikria's own record types, defined in a 0BSD crate in the
