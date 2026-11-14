@@ -21,8 +21,10 @@ making any non-trivial change.
 - **Do not edit Keleusma or Ikria.** They are separate repositories.
 - **Commit once per prompt,** with no `Co-Authored-By` trailer.
 - **Ask before outward-facing actions,** such as pushing, changing visibility or
-  settings, or publishing. A standing authority covers merging pull requests here and
-  in `sgeos/ikria`, as `CLAUDE.md` defines it.
+  settings, or publishing. A standing authority covers pushing and merging pull
+  requests here and in `sgeos/ikria`, as `CLAUDE.md` defines it.
+- **No outside contributions.** Never merge a pull request from anyone but the
+  maintainer. See `CONTRIBUTING.md`.
 - **Scratch directories.** Use `tmp/` for transient files. Its contents are ignored. Never
   commit anything under `secret/`, and never copy its contents into tracked files.
 - **Run `./scripts/check.sh` before committing.**

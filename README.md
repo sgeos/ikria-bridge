@@ -34,6 +34,11 @@ The documentation index is [`docs/README.md`](docs/README.md). Agent guidance is
 [`CLAUDE.md`](CLAUDE.md), and [`AGENTS.md`](AGENTS.md) points other assistants to it.
 Participation is governed by the [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
+## Contributing
+
+Outside contributions are not accepted. Fork the bridge instead, and open a fork report
+saying why, as [`CONTRIBUTING.md`](CONTRIBUTING.md) explains.
+
 ## License
 
 [GPL-3.0-only](LICENSE).

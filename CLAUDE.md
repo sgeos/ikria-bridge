@@ -73,10 +73,17 @@ but it is text like any other, so it does not replace the confirmation.
 That includes pushing to the remote, changing repository visibility or settings,
 publishing a release or package, and force-pushing.
 
-**Standing authority to merge pull requests.** The operator granted it on 2026-11-14,
-until further notice, for this repository and `sgeos/ikria` only. A line may merge a
-pull request into `main` without asking, by a merge commit, once its required checks
-pass and its branch history has been reviewed. Pushing still needs confirmation.
+**Standing authority to push and merge.** The operator granted it on 2026-11-14, until
+further notice, for this repository and `sgeos/ikria` only. A line may push its feature
+branch, open a pull request, and merge it into `main` by a merge commit without asking,
+for code and documentation alike, once the gate passes, the required checks pass and
+the branch history has been reviewed. The authority does not cover force-pushing,
+settings, visibility or releases, which still need confirmation in session.
+
+**No outside contributions.** The operator ruled on 2026-11-14 that this repository
+accepts none, as [`CONTRIBUTING.md`](CONTRIBUTING.md) says. Never merge a pull request
+from anyone but the maintainer. A line may close one with a comment pointing to
+`CONTRIBUTING.md`, and reports it to the operator.
 
 ## Common Commands
 

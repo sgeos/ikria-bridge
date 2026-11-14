@@ -1,3 +1,8 @@
+<!--
+Outside pull requests are not accepted and are closed without review. See
+CONTRIBUTING.md. Fork the repository instead, and open a fork report issue saying why.
+-->
+
 ## Summary
 
 <!-- One or two sentences on what the change does and why. Use `Fixes #N` to link an issue. -->
