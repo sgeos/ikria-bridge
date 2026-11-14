@@ -1,0 +1,126 @@
+# Continuous integration. The job runs the local gate, scripts/check.sh, so a green run
+# here means what a green run on a developer machine means.
+#
+# Supply chain. Actions are pinned to full commit hashes with the release tag in a
+# comment, so a moved or compromised tag cannot change what runs. Dependabot proposes
+# newer pins after a cooldown. The workflow only reads the repository, and no secret is
+# given to it.
+#
+# Account load. GitHub-hosted runners share one concurrent-job limit across the whole
+# sgeos account, so one busy repository delays every other. When this workflow grows a
+# matrix, add `max-parallel` to it. Run a reduced, fast set on pull requests, and the
+# full matrix on pushes to main, so that every commit on main has a complete result of
+# its own. A pull request that needs the full set before merging opts in with a
+# `full-ci` label, for example with
+# `if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'full-ci')`.
+# The cheap hygiene part of the gate can run as its own job with
+# `./scripts/check.sh --hygiene-only`.
+#
+# Required check. The ruleset requires one check, `CI result`, from the last job below,
+# which always runs and fails when any job it needs failed or was cancelled. GitHub
+# counts a skipped job as passing, so jobs may be skipped on purpose, such as the full
+# set on an unlabelled pull request. A required check must itself never be skipped, and
+# a workflow skipped by `paths-ignore` reports no check at all, so a required check
+# would never arrive. Skip work inside jobs instead, and add every new job to `needs`.
+# A project that fast-forwards main instead of merging pull requests must run CI on its
+# branches, for example with `push` and no branch filter, so that the commit it pushes
+# to main already carries a passing `CI result`. Otherwise the required check blocks
+# the push.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# No permissions by default. Each job grants only what it needs.
+permissions: {}
+
+# Supersede an in-flight run when a pull request is pushed again, and leave branch runs
+# alone. The group is the ref for a pull request and the unique run identifier
+# otherwise, so that a second merge to main cannot cancel the first merge's run and
+# leave a commit on main with no result of its own.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # Set up the project's language before the gate, pinned like checkout. For
+      # example, for Python:
+      #
+      # - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      #   with:
+      #     python-version: "3.12"
+      #
+      # or, for Rust. Pinned by hash, rust-toolchain cannot read the toolchain from the
+      # ref name, so it needs the toolchain input:
+      #
+      # - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable, 2026-10-16
+      #   with:
+      #     toolchain: stable
+      # - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+      #
+      # The gate needs shellcheck. GitHub's Ubuntu runners include it, and its macOS
+      # runners do not, so a macOS job installs it first:
+      #
+      # - run: command -v shellcheck >/dev/null || brew install shellcheck
+      #
+      # Find the commit for a release tag with
+      # `gh api repos/OWNER/ACTION/commits/TAG --jq .sha`, and keep the tag in a comment.
+      # Give every job its own timeout-minutes, sized to a few times its usual run, so a
+      # hung job releases its runner instead of holding one of the account's shared slots.
+      - name: Run the local gate
+        run: ./scripts/check.sh
+
+  # Lints the workflows themselves. actionlint checks syntax, expressions and the
+  # shell in run steps, and zizmor checks for known security weaknesses, such as
+  # injection through untrusted input, excessive permissions and unpinned actions. Both
+  # run here only, because neither is commonly installed on a developer machine. The
+  # actionlint image is pinned by digest, and zizmor's version is pinned explicitly.
+  workflows:
+    name: workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: actionlint
+        run: >-
+          docker run --rm --volume "$PWD:/repo" --workdir /repo
+          rhysd/actionlint:1.7.12@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667
+          -color
+      - name: zizmor
+        uses: zizmorcore/zizmor-action@53290badfa369cb0bf7ad16342cb62c2fa47ac7b # v0.8.0
+        with:
+          version: 1.31.1
+          advanced-security: false
+
+  # The single required check. Keep its name in step with the ruleset.
+  ci-result:
+    name: CI result
+    if: always()
+    needs: [check, workflows]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Fail if a needed job failed or was cancelled
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
+      - name: Report success
+        run: echo "every needed job passed or was skipped on purpose"
