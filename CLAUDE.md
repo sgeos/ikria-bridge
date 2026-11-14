@@ -85,6 +85,13 @@ accepts none, as [`CONTRIBUTING.md`](CONTRIBUTING.md) says. Never merge a pull r
 from anyone but the maintainer. A line may close one with a comment pointing to
 `CONTRIBUTING.md`, and reports it to the operator.
 
+**Strict provenance.** The operator ruled on 2026-11-14 that every change is implemented
+from first principles. A line works from the need a report describes, and never reads,
+copies or adapts code from outside parties, such as code in an issue, a pull request or
+a fork. If a report contains code or links to an implementation, the line does not open
+or use it, and tells the operator. A commit that meets a report names the report and
+states that it was implemented independently.
+
 ## Common Commands
 
 ```sh
