@@ -20,9 +20,13 @@ charter keeps any GPL bridge in a small separate repository.
    programs.
 2. **A separate GPL-3.0 repository.** The bridge lives here, uses `krpc-client`, and is
    public.
-3. **Licence version.** GPL-3.0-only, matching the GPL-3.0 code it depends on. This is
-   the seeding line's choice, not an operator ruling. Changing it to GPL-3.0-or-later
-   is possible while this repository has no outside contributions.
+3. **Licence version.** GPL-3.0-only, matching the GPL-3.0 code it depends on. The
+   seeding line chose it, and the operator confirmed it on 2026-11-14 as the version
+   closest to 0BSD for the operator, since it fixes the terms rather than admitting
+   later versions that may be stricter. As the sole author of this repository's own
+   code, the operator keeps the right to relicense that code, for example if kRPC's
+   licensing loosens. Outside contributions would end that, unless their authors
+   agree.
 
 ## Consequences
 

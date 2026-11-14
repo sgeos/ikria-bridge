@@ -31,8 +31,6 @@ completed, moved or abandoned.
 - **Gate.** `scripts/check.sh` holds only the template's checks. Add Rust lint, format
   and test commands, and the `cargo` entry in `.github/dependabot.yml`, when the first
   crate arrives.
-- **Licence version.** GPL-3.0-only was the seeding line's choice. See the decision
-  record.
 
 ## Environment
 
