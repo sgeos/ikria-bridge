@@ -24,3 +24,5 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+
+# Cargo updates are manual while ikria-records is a sibling path dependency.

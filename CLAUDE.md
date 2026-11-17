@@ -14,7 +14,7 @@ client and service definitions it uses are, and it runs as a separate process so
 Ikria's other parts stay 0BSD. It holds no control logic, which lives in Ikria's
 Keleusma programs.
 
-**Status.** Seeded from `sgeos/project-template`. Nothing is implemented yet. The
+**Status.** The single-vessel verification bridge is implemented. The
 design is Ikria's `docs/architecture/HARNESS_DESIGN.md`, and the first milestone will
 be in [`docs/roadmap/`](docs/roadmap/README.md).
 
