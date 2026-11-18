@@ -39,6 +39,11 @@ Thumbs.db
 *~
 nvim.log
 
+# Python's compiled files are build output. The gate's own Python scripts produce
+# them, so every project ignores them.
+__pycache__/
+*.py[cod]
+
 # Rust build output. No trailing slash, so a link to a scratch volume still matches.
 /target
 **/target
