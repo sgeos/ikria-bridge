@@ -38,3 +38,9 @@ The bridge publication is authorized for this session and follows the completed
 Ikria merge. The local gate was rerun successfully. Merge only after remote required
 checks pass. This is a pre-merge report, with completion recorded by the remote
 pull request and merge ancestry. No new standing authority is inferred.
+
+The first bridge workflow audit rejected the template example Rust-toolchain pin
+because it did not belong to the referenced repository. The workflow now uses
+Ikria's validated pin `683b588c487a69d01f6c6ddf40f036ff682cc2c8`. The official
+repository comparison confirmed it is an ancestor of stable. The audit remains
+enabled. This required a corrective commit after the initial publication commit.

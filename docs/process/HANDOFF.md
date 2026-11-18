@@ -53,7 +53,9 @@ The gate now includes Rust formatting, Clippy with warnings denied and three off
 asynchronous framing and deadline tests. Cargo dependency updates remain manual
 because Dependabot cannot resolve a sibling path dependency. The workflow pins the
 matching Ikria source. Ikria pull request 34 passed its remote checks. The bridge
-checks must pass before merging. This approval does not establish standing authority.
+checks must pass before merging. The first workflow audit rejected the template
+example toolchain pin. It was replaced with Ikria's pin after verifying official
+repository ancestry. No audit was suppressed. This approval is session-specific.
 
 ## Validity
 
