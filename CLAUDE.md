@@ -78,7 +78,11 @@ further notice, for this repository and `sgeos/ikria` only. A line may push its 
 branch, open a pull request, and merge it into `main` by a merge commit without asking,
 for code and documentation alike, once the gate passes, the required checks pass and
 the branch history has been reviewed. The authority does not cover force-pushing,
-settings, visibility or releases, which still need confirmation in session.
+settings, visibility or releases, which still need confirmation in session. On
+2026-11-18 the operator extended it to Codex and Grok Build lines, to the extent
+feasible. A line whose environment cannot reach the remote, or holds no credential for
+it, leaves its branch committed and reports it for another line or the operator to
+publish, rather than working around the limit.
 
 **No outside contributions.** The operator ruled on 2026-11-14 that this repository
 accepts none, as [`CONTRIBUTING.md`](CONTRIBUTING.md) says. Never merge a pull request

@@ -22,7 +22,9 @@ making any non-trivial change.
 - **Commit once per prompt,** with no `Co-Authored-By` trailer.
 - **Ask before outward-facing actions,** such as pushing, changing visibility or
   settings, or publishing. A standing authority covers pushing and merging pull
-  requests here and in `sgeos/ikria`, as `CLAUDE.md` defines it.
+  requests here and in `sgeos/ikria`, as `CLAUDE.md` defines it. It extends to Codex
+  and Grok Build lines, to the extent their environments allow, as the operator ruled
+  on 2026-11-18.
 - **No outside contributions, strict provenance.** Never merge a pull request from
   anyone but the maintainer, and never read or use code from outside parties, including
   code in issues or forks. Implement from the described need. See `CONTRIBUTING.md`.
