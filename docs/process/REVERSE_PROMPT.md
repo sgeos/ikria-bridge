@@ -2,45 +2,47 @@
 
 > **Navigation**: [Process](README.md)
 
-Written by Codex on 2026-11-18 in Coordinated Universal Time.
+Written by Codex on 2026-11-18 for handoff to Claude.
 
-The operator requested the components needed for Keleusma flight-control loops. This
-branch implements the separate Rust bridge for one guarded verification profile.
-Ikria's paired branch implements the harness and programs. The operator approved
-committing, pushing and merging Ikria first, followed by the bridge. Ikria pull
-request 34 passed all required checks and merged as `583e1d4`. The pinned
-implementation revision `504d4c4` is preserved in main.
+The operator requested handoff preparation after the authorized publication. Ikria
+pull request 34 merged as `583e1d4`, then bridge pull request 5 as `5d63344`. Both main
+checkouts were synchronized and clean. The bridge workflow's Ikria revision `504d4c4`
+is preserved in main ancestry. Implementation publication is complete.
+
+This documentation-only task reconciles stale handoffs and roadmap status, preserves
+open work and provides receiving-line instructions. The paired local branches are
+`docs/codex-claude-handoff` in Ikria and `docs/codex-claude-bridge-handoff` here. On
+2026-11-18 the operator explicitly authorized committing, pushing and merging all work.
+This publication report precedes those merges. Their pull requests and merge ancestry
+record completion. Start Claude in synchronized main after both merges. No new
+standing authority is inferred.
 
 The bridge checks the actual save, vessel, crew and revision B configuration, binds
 one session, exchanges bounded version 2 frames and advances held physics ticks.
-The whole command is authorized before any application. Command calls are sequential,
-so partial application remains possible and lost acknowledgements are never retried.
-A cancelled remote procedure call causes connection discard. Healthy shutdown attempts
+Whole commands are authorized before application. Calls are sequential, so partial
+application remains possible. Lost acknowledgements are never retried. Failed or
+cancelled remote procedure calls discard the connection. Healthy shutdown attempts
 neutralization and tick release. Solid motors cannot be stopped by neutralization.
 
-Live verification completed a normal flight and a coast abort with eight-part recovery.
-Ikria VR-0010 preserves journals, hashes and failed development runs. A moving-frame
-velocity mistake lost an earlier empty article, then was corrected. A later touchdown
-bounce fault was fixed in the harness. No crew flew and no career file changed.
+Ikria VR-0010 retains normal and coast-abort flights with eight-part recovery, exact
+command replay, hashes and failed development runs. A moving-frame velocity mistake
+lost an empty article, then was corrected. A touchdown bounce fault was fixed in the
+harness. No crew flew and no career file changed. The game was last observed at the
+verification Space Center on 2026-11-17. This task performed no game operations.
 
-The local gate now checks formatting, lint, three asynchronous framing and timeout
-tests, and repository hygiene. Shared policy and runtime tests are in Ikria. No
-remote continuous integration result was observed. The workflow explicitly checks out
-the matching Ikria revision beside the bridge. Cargo updates remain manual while the
-records dependency uses that sibling path.
+Local gates pass on macOS with Rust 1.100.0. The bridge reaches three asynchronous
+framing and timeout tests, none ignored, plus formatting, lint and repository hygiene.
+Ikria reaches 60 Rust and 13 Python tests. The first bridge workflow audit rejected
+an invalid template toolchain pin. Corrective commit `03ea74b` substituted the verified
+revision `683b588c487a69d01f6c6ddf40f036ff682cc2c8` without suppressing the audit.
+Pre-merge run `44255914853` and post-merge run `44256254190` passed. Ikria post-merge
+run `44255410252` passed. Handoff publication requires green remote checks at the
+final branch tips. Their pull requests record those results.
 
-The code was written independently from the stated need and released dependency
-interfaces. No outside issue, pull-request or fork implementation was used. Keleusma
-was not changed. Career qualification, active attitude actuation, general vessels,
-multiple vessels, separation, persistent identity and batching remain future work.
-
-The bridge publication is authorized for this session and follows the completed
-Ikria merge. The local gate was rerun successfully. Merge only after remote required
-checks pass. This is a pre-merge report, with completion recorded by the remote
-pull request and merge ancestry. No new standing authority is inferred.
-
-The first bridge workflow audit rejected the template example Rust-toolchain pin
-because it did not belong to the referenced repository. The workflow now uses
-Ikria's validated pin `683b588c487a69d01f6c6ddf40f036ff682cc2c8`. The official
-repository comparison confirmed it is an ancestor of stable. The audit remains
-enabled. This required a corrective commit after the initial publication commit.
+The code was written independently from the need and released dependency interfaces.
+No outside issue, pull-request or fork implementation was used. Keleusma was not
+changed. Cargo updates remain manual while records use the sibling path dependency.
+Career qualification, active attitude actuation, general and multiple vessels,
+separation, persistent identity, timing measurements and atomic batching remain open.
+The handoff preserves the dependency layout, server timeout assumption and live-use
+precautions. No mailbox is assigned.
