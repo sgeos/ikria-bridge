@@ -2,11 +2,13 @@
 
 > **Navigation**: [Process](README.md) | [Documentation Root](../README.md)
 
-## State on 2026-11-17
+## State on 2026-11-18
 
-Written by Codex on `feat/codex-live-bridge`, based on main `551bb7b`. Remote main was
-refreshed and remains that commit. The branch is unpushed. The operator explicitly
-required consultation before pushing. No merge or publication is authorized here.
+Written by Codex on `feat/codex-live-bridge`, based on main `551bb7b`. The operator
+approved this publication, Ikria first and then the bridge. On 2026-11-18 in
+Coordinated Universal Time, Ikria pull request 34 merged as `583e1d4`, preserving the
+pinned implementation `504d4c4`. This report precedes the bridge merge. Its remote
+pull-request state and merge ancestry record completion.
 
 The Rust bridge is implemented with released `krpc-client` 0.7.0 and Ikria's version 2
 flight records. It admits one empty IKR-TS-001B in the verification save, supports
@@ -24,8 +26,8 @@ career file unchanged.
 
 ## Dependencies and next step
 
-1. Review both branches and ask before pushing. Publish Ikria first if approved,
-   because this repository's continuous integration pins its records revision.
+1. Complete the authorized bridge publication through a green pull request. Ikria
+   is merged. Check remote merge ancestry before repeating publication.
 2. Keep the repositories as siblings named `ikria-bridge` and `ikria`, or provide
    the equivalent local path layout. The worktree under Ikria's tmp uses a sibling
    symlink named `ikria`. The manifest path dependency is intentional and documented.
@@ -50,7 +52,8 @@ Main remains protected and changes require a pull request with a green `CI resul
 The gate now includes Rust formatting, Clippy with warnings denied and three offline
 asynchronous framing and deadline tests. Cargo dependency updates remain manual
 because Dependabot cannot resolve a sibling path dependency. The workflow pins the
-matching Ikria source. No remote continuous integration result has been observed.
+matching Ikria source. Ikria pull request 34 passed its remote checks. The bridge
+checks must pass before merging. This approval does not establish standing authority.
 
 ## Validity
 

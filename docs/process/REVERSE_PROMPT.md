@@ -2,11 +2,14 @@
 
 > **Navigation**: [Process](README.md)
 
-Written by Codex on 2026-11-17.
+Written by Codex on 2026-11-18 in Coordinated Universal Time.
 
 The operator requested the components needed for Keleusma flight-control loops. This
 branch implements the separate Rust bridge for one guarded verification profile.
-Ikria's paired branch implements the harness and programs. Neither branch was pushed.
+Ikria's paired branch implements the harness and programs. The operator approved
+committing, pushing and merging Ikria first, followed by the bridge. Ikria pull
+request 34 passed all required checks and merged as `583e1d4`. The pinned
+implementation revision `504d4c4` is preserved in main.
 
 The bridge checks the actual save, vessel, crew and revision B configuration, binds
 one session, exchanges bounded version 2 frames and advances held physics ticks.
@@ -31,6 +34,7 @@ interfaces. No outside issue, pull-request or fork implementation was used. Kele
 was not changed. Career qualification, active attitude actuation, general vessels,
 multiple vessels, separation, persistent identity and batching remain future work.
 
-Ask before pushing. If approved, publish Ikria first so the pinned dependency revision
-is reachable. The operator's explicit push restriction takes precedence over the
-older standing authority language in this repository.
+The bridge publication is authorized for this session and follows the completed
+Ikria merge. The local gate was rerun successfully. Merge only after remote required
+checks pass. This is a pre-merge report, with completion recorded by the remote
+pull request and merge ancestry. No new standing authority is inferred.
