@@ -343,8 +343,9 @@ fi
 #
 # Once a command uses project_args, delete the note below about unused arguments.
 
-printf 'check.sh: note: no project checks are configured yet, so only hygiene was checked\n'
-if ((${#project_args[@]} > 0)); then
-    printf 'check.sh: note: %d arguments after -- were given, and no project check used them\n' \
-        "${#project_args[@]}"
-fi
+cargo fmt --all -- --check || fail "Rust formatting failed"
+pass "Rust formatting passes"
+cargo clippy --all-targets --locked -- -D warnings || fail "Rust lint failed"
+pass "Rust lint passes"
+cargo test --locked "${project_args[@]+"${project_args[@]}"}" || fail "Rust tests failed"
+pass "Rust tests pass"
