@@ -11,9 +11,11 @@ is preserved in main ancestry. Implementation publication is complete.
 
 This documentation-only task reconciles stale handoffs and roadmap status, preserves
 open work and provides receiving-line instructions. The paired local branches are
-`docs/codex-claude-handoff` in Ikria and `docs/codex-claude-bridge-handoff` here. They
-have not been pushed. Review before publication under the receiving line's applicable
-authority. No new standing authority is inferred.
+`docs/codex-claude-handoff` in Ikria and `docs/codex-claude-bridge-handoff` here. On
+2026-11-18 the operator explicitly authorized committing, pushing and merging all work.
+This publication report precedes those merges. Their pull requests and merge ancestry
+record completion. Start Claude in synchronized main after both merges. No new
+standing authority is inferred.
 
 The bridge checks the actual save, vessel, crew and revision B configuration, binds
 one session, exchanges bounded version 2 frames and advances held physics ticks.
@@ -34,7 +36,8 @@ Ikria reaches 60 Rust and 13 Python tests. The first bridge workflow audit rejec
 an invalid template toolchain pin. Corrective commit `03ea74b` substituted the verified
 revision `683b588c487a69d01f6c6ddf40f036ff682cc2c8` without suppressing the audit.
 Pre-merge run `44255914853` and post-merge run `44256254190` passed. Ikria post-merge
-run `44255410252` passed. These local handoff commits have no remote check result.
+run `44255410252` passed. Handoff publication requires green remote checks at the
+final branch tips. Their pull requests record those results.
 
 The code was written independently from the need and released dependency interfaces.
 No outside issue, pull-request or fork implementation was used. Keleusma was not

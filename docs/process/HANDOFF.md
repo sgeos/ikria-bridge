@@ -8,8 +8,9 @@ Written by Codex for Claude on `docs/codex-claude-bridge-handoff`, based on main
 `5d63344`. The operator requested handoff preparation after the authorized ordered
 publication. Ikria [pull request 34](https://github.com/sgeos/ikria/pull/34) merged as
 `583e1d4`, then bridge [pull request 5](https://github.com/sgeos/ikria-bridge/pull/5)
-merged as `5d63344`. Both main checkouts were synchronized and clean. These new
-handoff changes are local and unpushed. No implementation publication remains open.
+merged as `5d63344`. Both main checkouts were synchronized and clean. The operator
+approved publishing both handoffs on 2026-11-18. Their pull requests and merge ancestry
+record completion. No implementation publication remains open.
 
 The Rust bridge uses released `krpc-client` 0.7.0 and Ikria's version 2 flight records.
 It admits one empty IKR-TS-001B in the verification save, supports telemetry-only and
@@ -26,10 +27,10 @@ Jebediah available and the career unchanged. This task did not query or change t
 
 ## Receiving Claude line and open work
 
-1. Follow `CLAUDE.md` startup and read `REVERSE_PROMPT.md`. The paired Ikria handoff is
-   on `docs/codex-claude-handoff` under the main Ikria checkout's
-   `tmp/worktrees/docs-codex-claude-handoff`. Review both local handoff commits before
-   publication under the receiving line's applicable authority. No mailbox is assigned.
+1. Start in synchronized main and follow `CLAUDE.md` startup. The paired Ikria checkout
+   is `~/projects/keleusma/ikria`. Confirm main includes `docs/codex-claude-handoff`
+   there and `docs/codex-claude-bridge-handoff` here. Read `REVERSE_PROMPT.md`.
+   No mailbox is assigned.
 2. Keep repositories as siblings named `ikria-bridge` and `ikria`, or provide equivalent
    paths. Worktrees under Ikria's tmp use a sibling `ikria` symlink. The manifest's
    `../ikria/crates/ikria-records` dependency is intentional. The workflow pins Ikria
@@ -78,8 +79,9 @@ gate should exit zero. The inherited report was stale about publication. Local g
 pass on macOS with Rust 1.100.0, including formatting, Clippy with warnings denied,
 repository hygiene and three offline asynchronous framing and deadline tests, none
 ignored. Ikria separately reaches 60 Rust and 13 Python tests. Live observations are
-separate evidence. Remote results cover merged implementations, not these local
-handoff commits. Report checks not run and commits after this rewrite.
+separate evidence. The cited remote runs cover merged implementations. Check the
+handoff pull requests for their required checks and merge state. Report checks not run
+and commits after this rewrite.
 
 ## Mailbox
 
